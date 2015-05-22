@@ -34,14 +34,14 @@
 
 ## Usage  
  
- The file peg.js exports the following functions.  
+ The file peg.erl exports the following functions.  
  
  All the parser functions returned by these functions ( except entryPoint()) return a "token" data type. 
- Tokens can be od type "error", "unit", 'seq','rep' or 'mapped' ( see pegToken.js). 
+ Tokens can be of type "error", "unit", 'seq','rep' 
  Token functions defined in pegtoken.js are straight forward.   The tokens returned by the parsers 
  are need not be used ( as the examples in calc.erl and calcast.erl show).
  
- In the documentation they have been given in case anyone wnats to use the tokens directly, instead of using
+ In the documentation, token descriptions have been given, in case anyone wants to use the tokens directly, instead of using
  the MapFun. ( read on it will be clear).
  
  
