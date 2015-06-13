@@ -13,6 +13,7 @@
  oneOf/2,oneOf/3,
  seq/1,seq/2,
  rep/1,rep/2,
+ opt/1.opt/2,
  entryPoint/1,
  forward_ref/1,
  register_forward/2
@@ -279,6 +280,13 @@ register_forward(expr,Expr)  <- right after expr has been define
  
   
 Please study calc.erl, calcAST.erl to understand the usage.
+
+#### 7 opt/1, opt2
+
+Work exactly like rep() except that rep() matches zero or more occurrences whereas opt()
+matches zero or one occurrence of the construct recognized by the parser. Opt() returns 
+an empty list {} for no match and an list with one result in case of a match [Result]. See
+rep() above.
 
 ## Developing
 
