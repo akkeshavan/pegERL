@@ -20,6 +20,8 @@
 		 seq/2,
 		 rep/1,
 		 rep/2,
+		 opt/1,
+		 opt/2,
 		 entryPoint/1,
 		 forward_ref/1,
 		 register_forward/2
@@ -78,6 +80,16 @@ seq(ParserList,MapFun)->map(seq(ParserList),MapFun).
 
 rep(Parser)->fun (Str)->rep_iter(Parser,Str,[]) end.
 rep(Parser,MapFun)->map(rep(Parser),MapFun).
+
+opt(Parser)->
+	fun (Str)->
+		R=Parser(Str),
+		case R of
+			error-> token(rep,"",[],null);
+			{_,WS,Element,Value}->token(rep,WS,[Element],Value)
+		end
+	end.
+opt(Parser,Mapfn)->map(opt(Parser),Mapfn).
 
 register_forward(Key,Parser)-> put(Key,Parser).
 			 
